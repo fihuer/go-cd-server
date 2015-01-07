@@ -4,11 +4,11 @@ MAINTAINER Romain Fihue <romain.fihue@gmail.com>
 
 RUN apt-get update > /dev/null
 
-RUN apt-get install -y wget openjdk-7-jdk
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y wget openjdk-7-jdk
 
 RUN wget -O /tmp/go-server.deb http://download.go.cd/gocd-deb/go-server-14.4.0-1356.deb
 
-RUN apt-get install -y unzip git
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -q -y unzip git
 
 RUN dpkg -i /tmp/go-server.deb
 
